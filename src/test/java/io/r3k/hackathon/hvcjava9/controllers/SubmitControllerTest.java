@@ -80,6 +80,22 @@ public class SubmitControllerTest {
     }
 
     @Test
+    public void shouldDetectUploadJava9VersionForStep1WithMinimalInputWith13xVersion() {
+        //given
+        String input = "9-ea+131";
+        Principal userPrincipal = mock(Principal.class);
+        String user = UUID.randomUUID().toString();
+        when(userPrincipal.getName()).thenReturn(user);
+        final SubmitController submitController = new SubmitController(mock(SimpMessagingTemplate.class),inMemoryUserDetailsManager);
+        //when
+        SubmitResult result = submitController.step1UploadJavaVersion(input, userPrincipal);
+        //then
+        assertTrue(result.isSuccess());
+        UserScore score = submitController.getScore(user);
+        assertEquals(1, score.getStep1());
+    }
+
+    @Test
     public void shouldNotDetectJava9AsItsJava8() {
         //given
         String input = "java version \"1.8.0_45\"\n"

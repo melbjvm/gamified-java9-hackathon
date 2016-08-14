@@ -44,7 +44,7 @@ public class SubmitController {
     @RequestMapping(method = RequestMethod.POST, value = "go/uploadjavaversion")
     public SubmitResult step1UploadJavaVersion(@RequestParam("source") String input, Principal principal) {
         log.info("step1UploadJavaVersion " + input + " " + principal.getName());
-        if (input.contains("9-ea+12")) {
+        if (input.matches("(?s).*9-ea\\+1[2-9]\\d.*")) {
             getScore(principal.getName()).setStep1(1);
             sendUpdate();
             return new SubmitResult(true, null, "/jshellchallenge.html");
