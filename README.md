@@ -17,6 +17,3 @@ For proper use
 - Add firewall rules to redirect 8080 -> 80 and 8443 -> 443.
 - shell in a box is required for the JEP 286 demo. It's nice to show even if the JEP does not make Java 9.
 - createuser.sh can create users on the shell in a box machine.
-
-Notes
-- It's 'hard coded' that users use Java 9 build 120-129, but update the unit test io.r3k.hackathon.hvcjava9.controllers.SubmitControllerTest if that is not the case.
