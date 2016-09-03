@@ -88,7 +88,7 @@ public class SubmitController {
         }
         getScore(user).setStep3(1);
         sendUpdate();
-        return "Well done. Using your browser, browse to the page https://jozijugdojo.co.za/letsencrypt.html";
+        return "Well done. Using your browser, browse to the page https://j9.melbjvm.com/letsencrypt.html";
     }
 
     @RequestMapping(path = "go/{user}/letsencrypt", method = RequestMethod.PUT)
@@ -100,7 +100,7 @@ public class SubmitController {
         if (request.getRequestURL().toString().toLowerCase().contains("https://")) {
             getScore(user).setStep4(1);
             sendUpdate();
-            return "Well done. Using your browser, browse to the page https://jozijugdojo.co.za/jep286.html";
+            return "Well done. Using your browser, browse to the page https://j9.melbjvm.com/jep286.html";
         }
         return "Sorry, but you need to use https and not http. Try again.";
     }
