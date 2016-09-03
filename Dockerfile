@@ -10,7 +10,7 @@ RUN mvn clean package
 ENV HTTPPORT=80 HTTPSPORT=443
 EXPOSE $HTTPPORT $HTTPSPORT
 ENV domain_name=j9.melbjvm.com
-ADD scripts/letsencrypt.sh
+ADD scripts/letsencrypt.sh letsencrypt.sh
 ENV SPRING_APPLICATION_JSON='{"httpport": $HTTPPORT, \
                               "server": { "port": $HTTPSPORT , \
                                           "ssl": { \
