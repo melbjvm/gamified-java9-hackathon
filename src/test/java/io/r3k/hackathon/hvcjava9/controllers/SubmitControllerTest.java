@@ -137,14 +137,14 @@ public class SubmitControllerTest {
         //given
         String user = UUID.randomUUID().toString();
         when(inMemoryUserDetailsManager.userExists(user)).thenReturn(true);
-        String requestURL = "http://jozijugdojo.co.za/go/" + user + "/jshellput";
+        String requestURL = "http://j9.melbjvm.com/go/" + user + "/jshellput";
         HttpServletRequest httpServletRequest = Mockito.mock(HttpServletRequest.class);
         when(httpServletRequest.getRequestURL()).thenReturn(new StringBuffer(requestURL));
         final SubmitController submitController = new SubmitController(mockSimpMessagingTemplate,inMemoryUserDetailsManager);
         //when
         String result = submitController.step2(user, httpServletRequest);
         //then
-        assertEquals("Well done. Now perform 50 HTTP POST to the URL http://jozijugdojo.co.za/go/" + user + "/jshellpost", result);
+        assertEquals("Well done. Now perform 50 HTTP POST to the URL http://j9.melbjvm.com/go/" + user + "/jshellpost", result);
         UserScore score = submitController.getScore(user);
         assertEquals(1, score.getStep2());
     }
@@ -169,7 +169,7 @@ public class SubmitControllerTest {
         //given
         String user = UUID.randomUUID().toString();
         when(inMemoryUserDetailsManager.userExists(user)).thenReturn(false);
-        String requestURL = "http://jozijugdojo.co.za/go/" + user + "/jshellput";
+        String requestURL = "http://j9.melbjvm.com/go/" + user + "/jshellput";
         HttpServletRequest httpServletRequest = Mockito.mock(HttpServletRequest.class);
         when(httpServletRequest.getRequestURL()).thenReturn(new StringBuffer(requestURL));
         final SubmitController submitController = new SubmitController(mockSimpMessagingTemplate,inMemoryUserDetailsManager);
@@ -186,7 +186,7 @@ public class SubmitControllerTest {
         //given
         String user = UUID.randomUUID().toString();
         when(inMemoryUserDetailsManager.userExists(user)).thenReturn(true);
-        String requestURL = "http://jozijugdojo.co.za/go/" + user + "/jshellpost";
+        String requestURL = "http://j9.melbjvm.com/go/" + user + "/jshellpost";
         HttpServletRequest httpServletRequest = Mockito.mock(HttpServletRequest.class);
         when(httpServletRequest.getRequestURL()).thenReturn(new StringBuffer(requestURL));
         final SubmitController submitController = new SubmitController(mockSimpMessagingTemplate,inMemoryUserDetailsManager);
@@ -198,7 +198,7 @@ public class SubmitControllerTest {
             assertEquals(result, "Do the same another " + (50 - count - 1) + " times");
         }
         String result = new SubmitController(mockSimpMessagingTemplate,inMemoryUserDetailsManager).step3(user, httpServletRequest);
-        assertEquals("Well done. Using your browser, browse to the page https://jozijugdojo.co.za/letsencrypt.html", result);
+        assertEquals("Well done. Using your browser, browse to the page https://j9.melbjvm.com/letsencrypt.html", result);
         UserScore score = submitController.getScore(user);
         assertEquals(1, score.getStep3());
     }
@@ -208,14 +208,14 @@ public class SubmitControllerTest {
         //given
         String user = UUID.randomUUID().toString();
         when(inMemoryUserDetailsManager.userExists(user)).thenReturn(true);
-        String requestURL = "HTTPS://JOZIJUGDOJO.co.za/GO/" + user + "/letsencrypt";
+        String requestURL = "HTTPS://j9.melbjvm.com/GO/" + user + "/letsencrypt";
         HttpServletRequest httpServletRequest = Mockito.mock(HttpServletRequest.class);
         when(httpServletRequest.getRequestURL()).thenReturn(new StringBuffer(requestURL));
         final SubmitController submitController = new SubmitController(mockSimpMessagingTemplate,inMemoryUserDetailsManager);
         //when
         String result = submitController.step4(user, httpServletRequest);
         //then
-        assertEquals("Well done. Using your browser, browse to the page https://jozijugdojo.co.za/jep286.html", result);
+        assertEquals("Well done. Using your browser, browse to the page https://j9.melbjvm.com/jep286.html", result);
         UserScore score = submitController.getScore(user);
         assertEquals(1, score.getStep4());
     }
@@ -225,14 +225,14 @@ public class SubmitControllerTest {
         //given
         String user = UUID.randomUUID().toString();
         when(inMemoryUserDetailsManager.userExists(user)).thenReturn(true);
-        String requestURL = "https://jozijugdojo.co.za/go/" + user + "/letsencrypt";
+        String requestURL = "https://j9.melbjvm.com/go/" + user + "/letsencrypt";
         HttpServletRequest httpServletRequest = Mockito.mock(HttpServletRequest.class);
         when(httpServletRequest.getRequestURL()).thenReturn(new StringBuffer(requestURL));
         final SubmitController submitController = new SubmitController(mockSimpMessagingTemplate,inMemoryUserDetailsManager);
         //when
         String result = submitController.step4(user, httpServletRequest);
         //then
-        assertEquals("Well done. Using your browser, browse to the page https://jozijugdojo.co.za/jep286.html", result);
+        assertEquals("Well done. Using your browser, browse to the page https://j9.melbjvm.com/jep286.html", result);
         UserScore score = submitController.getScore(user);
         assertEquals(1, score.getStep4());
     }
