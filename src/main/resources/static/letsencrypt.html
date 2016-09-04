@@ -78,26 +78,25 @@
             <div class="container">
                 <blockquote>
                     <p><a target="_blank" href="https://letsencrypt.org/">Let's encrypt</a> is a free certificate authority that is not yet supported in Java 8 or <a target="_blank" href="https://bugs.openjdk.java.net/browse/JDK-8154790">9</a>. Use the following code to import the trusted cacerts.<br>Note there is no 'jre' directory in the JDK anymore</p>
+                    <p>CA certificate can be downloaded <a target="_blank" href="https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem">here</a>.</p>
                 </blockquote>
                 Linux / Mac
-                <code>keytool -trustcacerts 
-                    -keystore $JAVA_HOME\lib\security\cacerts 
-                    -storepass changeit 
-                    -noprompt 
-                    -importcert 
-                    -file fullchain.pem
+                <code>keytool -cacerts
+                    -storepass changeit
+                    -noprompt
+                    -importcert
+                    -alias letsencrypt
+                    -file /path/to/the/exported/ca/certificate/lets-encrypt-x3-cross-signed.pem
                 </code>
                 <br>
                 Windows
-                <code>keytool -trustcacerts 
-                    -keystore %JAVA_HOME%/lib/security/cacerts 
-                    -storepass changeit 
-                    -noprompt 
-                    -importcert 
-                    -file fullchain.pem
+                <code>keytool -cacerts
+                    -storepass changeit
+                    -noprompt
+                    -importcert
+                    -alias letsencrypt
+                    -file C:\path\to\the\exported\ca\certificate\lets-encrypt-x3-cross-signed.pem
                 </code>
-
-                <a target="_blank" href="cacerts">cacerts</a>
             </div>
             <br>
             <blockquote>
